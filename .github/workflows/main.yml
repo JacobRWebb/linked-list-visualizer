@@ -20,7 +20,7 @@ jobs:
           runTests: false
           build: yarn build
       - run: pwd
-      - run: ll
+      - run: ls
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
@@ -47,7 +47,7 @@ jobs:
           name: build
           path: build
       - run: pwd
-      - run: ll
+      - run: ls
       - name: Yarn Install
         run: yarn
 
