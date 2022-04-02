@@ -30,7 +30,9 @@ jobs:
   ui-chrome-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.14.0-slim-chrome99-ff97
+    container:
+      image: cypress/browsers:node16.14.0-slim-chrome99-ff97
+      options: --user 1001
     needs: install
     strategy:
       fail-fast: false
