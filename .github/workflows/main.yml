@@ -18,15 +18,15 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           runTests: false
-          build: yarn build
       - run: pwd
       - run: ls -a
-      - name: Save build folder
+      - name:
+      - name: Save node_modules folder
         uses: actions/upload-artifact@v2
         with:
-          name: build
+          name: node_modules
           if-no-files-found: error
-          path: build
+          path: node_modules
 
   ui-chrome-tests:
     timeout-minutes: 15
@@ -41,19 +41,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Download the build folders
+      - name: Download the node_modules folders
         uses: actions/download-artifact@v2
         with:
-          name: build
-          path: build
+          name: node_modules
+          path: node_modules
       - run: pwd
       - run: ls -a
       - name: "UI Tests - Chrome"
         uses: cypress-io/github-action@v2
         with:
           install: false
-          start: serve -s build
-          wait-on: "http://localhost:5000"
+          start: yarn start
+          wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
           record: true
