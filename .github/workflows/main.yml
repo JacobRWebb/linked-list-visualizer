@@ -20,7 +20,7 @@ jobs:
           runTests: false
           build: yarn build
       - run: pwd
-      - run: ls
+      - run: ls -a
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
@@ -47,13 +47,12 @@ jobs:
           name: build
           path: build
       - run: pwd
-      - run: ls
-      - run: cd build && ls
+      - run: ls -a
       - name: "UI Tests - Chrome"
         uses: cypress-io/github-action@v2
         with:
           install: false
-          start: yarn start
+          start: serve -s build
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
