@@ -49,6 +49,9 @@ jobs:
           name: build
           path: build
 
+      - name: Yarn Install
+        run: yarn
+
       - name: "UI Tests - Chrome"
         uses: cypress-io/github-action@v2
         with:
