@@ -19,10 +19,8 @@ jobs:
         with:
           runTests: false
           build: yarn build
-
-      - run: yarn cypress info
-      - run: node -p 'os.cpus()'
-
+      - run: pwd
+      - run: ll
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
@@ -48,7 +46,8 @@ jobs:
         with:
           name: build
           path: build
-
+      - run: pwd
+      - run: ll
       - name: Yarn Install
         run: yarn
 
