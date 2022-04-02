@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Chown User
-        - run: chown -R 1001:1001 /github/home/.cache && echo "Chown done"
+        run: chown -R 1001:1001 /github/home/.cache && echo "Chown done"
 
       - name: Install Cypress
         uses: cypress-io/github-action@v2
