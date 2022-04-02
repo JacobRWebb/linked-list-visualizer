@@ -1,4 +1,4 @@
-name: Cypress Testing Suite
+name: Cypress Suite
 
 on:
   pull_request:
